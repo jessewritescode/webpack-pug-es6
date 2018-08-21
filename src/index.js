@@ -8,8 +8,4 @@ import './index.scss';
  */
 $(() => {
   $('body').html(template());
-
-
-  });
-
 });

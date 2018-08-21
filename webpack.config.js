@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 	output: {
@@ -22,9 +22,6 @@ module.exports = {
 					presets: ['env',  "stage-0", 'react'],
 					"plugins": [
 						"transform-async-to-generator",
-						//"transform-object-rest-spread",
-						//"transform-class-properties",
-						//"transform-runtime"
 					]
 				}
 			},
@@ -49,6 +46,7 @@ module.exports = {
 	plugins: [
 		new UglifyJSPlugin(),
 		new HtmlWebpackPlugin(),
+		new CleanWebpackPlugin(['dist']),
 	],
 	mode: 'development',
 

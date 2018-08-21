@@ -43,6 +43,10 @@ module.exports = {
 		]
 	},
 	entry: ["babel-polyfill", "./src"],
+	devtool: 'inline-source-map',
+	devServer: {
+    contentBase: './dist'
+  },
 	plugins: [
 		new UglifyJSPlugin(),
 		new HtmlWebpackPlugin(),

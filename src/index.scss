@@ -1,7 +1,9 @@
-input#txt-input, iframe#child-iframe, p#label {
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
+body {
+  font-family: 'Lato', sans-serif;
 }
 
-.hidden {
-  display: none;
+h1 {
+	color: rgba(0, 0, 0, 0.6);
 }

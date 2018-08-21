@@ -1,11 +1,9 @@
-import template from 'pug-loader!./index.pug';
-import $ from 'jquery';
-import './index.scss';
+import app from './app';
 
+app();
 
-/**
- * Drive our  code.
- */
-$(() => {
-  $('body').html(template());
-});
+if (module.hot) {
+  module.hot.accept('./app.js', function() {
+    app();
+  });
+}

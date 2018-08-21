@@ -6,8 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 	output: {
-		filename: '[name].[chunkhash].js',
-		chunkFilename: '[name].[chunkhash].js',
+		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, 'dist')
 	},
 
@@ -45,12 +44,14 @@ module.exports = {
 	entry: ["babel-polyfill", "./src"],
 	devtool: 'inline-source-map',
 	devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    hot: true
   },
 	plugins: [
 		new UglifyJSPlugin(),
 		new HtmlWebpackPlugin(),
 		new CleanWebpackPlugin(['dist']),
+		new webpack.HotModuleReplacementPlugin()
 	],
 	mode: 'development',
 

@@ -1,6 +1,6 @@
 import template from 'pug-loader!./index.pug';
 import $ from 'jquery';
-import './index.scss';
+import './index.css';
 
 const main = () => {
   $('body').html(template());

@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
 	output: {
 		filename: '[name].bundle.js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist', 'content')
 	},
 
 	module: {
@@ -25,7 +25,7 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.(scss|css)$/,
+				test: /\.css$/,
 
 				use: [
 					{
@@ -35,7 +35,7 @@ module.exports = {
 						loader: 'css-loader'
 					},
 					{
-						loader: 'sass-loader'
+						loader: 'postcss-loader'
 					}
 				]
 			}
@@ -44,14 +44,14 @@ module.exports = {
 	entry: ["babel-polyfill", "./src"],
 	devtool: 'inline-source-map',
 	devServer: {
-    contentBase: './dist',
+    contentBase: './dist/content',
     hot: true
   },
 	plugins: [
 		new UglifyJSPlugin(),
 		new HtmlWebpackPlugin(),
 		new CleanWebpackPlugin(['dist']),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
 	],
 	mode: 'development',
 
